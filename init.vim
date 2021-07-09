@@ -1,3 +1,46 @@
+" Plugin
+call plug#begin('~/.config/nvim/plugged')
+
+" Ctrlp
+Plug 'kien/ctrlp.vim'
+map <leader>t <C-p>
+map <leader>y :CtrlPBuffer<cr>
+let g:ctrlp_show_hidden=1
+let g:ctrlp_working_path_mode=0
+let g:ctrlp_max_height=30
+let g:ctrlp_arg_map=1
+
+" Nerdtree
+Plug 'scrooloose/nerdtree'
+let g:netrw_liststyle=3
+let NERDTreeShowHidden=1
+map <leader>' :NERDTreeToggle<cr>
+
+" Theme
+Plug 'morhetz/gruvbox'
+
+" SuperTab
+Plug 'ervandew/supertab'
+let g:SuperTabDefaultCompletionType = "<c-n>"
+
+"Coc nvim auto compete
+Plug 'neoclide/coc.nvim',{'branch': 'release'}
+
+" insert quotes and parenthesis in pairs
+Plug 'jiangmiao/auto-pairs'
+
+" Navigator between window
+Plug 'christoomey/vim-tmux-navigator'
+
+" Make comment
+Plug 'preservim/nerdcommenter'
+
+call plug#end()
+
+"Theme
+set background=dark
+colorscheme gruvbox
+
 " Settings {{{
 " Switch syntax highlighting on, when the terminal has colors
 syntax on
@@ -121,41 +164,3 @@ let NERDTreeShowHidden=1
 autocmd BufWinEnter * highlight ColorColumn ctermbg=darkred
 set colorcolumn=80
 " }}}
-
-
-" Plugin
-call plug#begin('~/config/nvim/plugged')
-
-" Ctrlp
-Plug 'kien/ctrlp.vim'
-map <leader>t <C-p>
-map <leader>y :CtrlPBuffer<cr>
-let g:ctrlp_show_hidden=1
-let g:ctrlp_working_path_mode=0
-let g:ctrlp_max_height=30
-let g:ctrlp_arg_map=1
-
-" Nerdtree
-Plug 'scrooloose/nerdtree'
-let g:netrw_liststyle=3
-let NERDTreeShowHidden=1
-map <leader>' :NERDTreeToggle<cr>
-
-" Theme
-Plug 'morhetz/gruvbox'
-
-" SuperTab
-Plug 'ervandew/supertab'
-let g:SuperTabDefaultCompletionType = "<c-n>"
-
-"Coc nvim auto compete
-Plug 'neoclide/coc.nvim',{'branch': 'release'}
-
-" insert quotes and parenthesis in pairs
-Plug 'jiangmiao/auto-pairs'
-
-call plug#end()
-
-"Theme
-set background=dark
-colorscheme gruvbox
