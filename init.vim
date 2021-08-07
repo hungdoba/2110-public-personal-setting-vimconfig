@@ -1,30 +1,20 @@
 " Plugin
 call plug#begin('~/.config/nvim/plugged')
 
-" React snippets
+" Emmet
+Plug 'mattn/emmet-vim'
+
+" Smart tab
+" Plug 'dpc/vim-smarttabs'
+
+" ReactSnippet
 Plug 'SirVer/ultisnips'
 Plug 'mlaursen/vim-react-snippets'
 
-" Vim close tag
-Plug 'alvan/vim-closetag'
-let g:closetag_filenames = '*.html,*.xhtml,*.phtml'
-let g:closetag_xhtml_filenames = '*.xhtml,*.jsx'
-let g:closetag_filetypes = 'html,xhtml,phtml'
-let g:closetag_xhtml_filetypes = 'xhtml,jsx'
-let g:closetag_emptyTags_caseSensitive = 1
-let g:closetag_regions = {
-    \ 'typescript.tsx': 'jsxRegion,tsxRegion',
-    \ 'javascript.jsx': 'jsxRegion',
-    \ 'typescriptreact': 'jsxRegion,tsxRegion',
-    \ 'javascriptreact': 'jsxRegion',
-    \ }
-
-
-
 " Ctrlp
 Plug 'kien/ctrlp.vim'
-map <leader>t <C-p>
-map <leader>y :CtrlPBuffer<cr>
+" map <leader>t <C-p>
+map <leader>; :CtrlPBuffer<cr>
 let g:ctrlp_show_hidden=1
 let g:ctrlp_working_path_mode=0
 let g:ctrlp_max_height=30
@@ -40,22 +30,32 @@ map <leader>' :NERDTreeToggle<cr>
 Plug 'morhetz/gruvbox'
 
 " SuperTab
-Plug 'ervandew/supertab'
-let g:SuperTabDefaultCompletionType = "<c-n>"
+"Plug 'ervandew/supertab'
+"let g:SuperTabDefaultCompletionType = "<c-n>"
 
-"Coc nvim auto compete
+" Coc nvim
 Plug 'neoclide/coc.nvim',{'branch': 'release'}
 
-" insert quotes and parenthesis in pairs
-Plug 'jiangmiao/auto-pairs'
+" coc extensions
+let g:coc_global_extensions = ['coc-tslint-plugin', 'coc-tsserver', 'coc-emmet', 'coc-css', 'coc-html', 'coc-json', 'coc-yank', 'coc-prettier', 'coc-pairs']
 
 " Navigator between window
 Plug 'christoomey/vim-tmux-navigator'
 
-" Make comment
-Plug 'preservim/nerdcommenter'
+" Auto Close Tag
+Plug 'alvan/vim-closetag'
 
 call plug#end()
+
+
+" Go backtab
+nnoremap gb :tabprevious<CR>
+
+"Set working directory to the current file
+set autochdir
+
+"Language
+language en_US
 
 "Theme
 set background=dark
@@ -118,10 +118,10 @@ set backspace=indent,eol,start
 set expandtab
 
 " Set tab size in spaces (this is for manual indenting)
-set tabstop=2
+set tabstop=4
 
 " The number of spaces inserted for a tab (used for auto indenting)
-set shiftwidth=2
+set shiftwidth=4
 
 " Turn on line numbers
 set number
@@ -156,6 +156,11 @@ set clipboard+=unnamed
 " Don't show intro
 set shortmess+=I
 
+
+"Scroll off
+set scrolloff=10
+
+
 " Better splits (new windows appear below and to the right)
 set splitbelow
 set splitright
@@ -178,6 +183,51 @@ set showmatch
 " Set built-in file system explorer to use layout similar to the NERDTree plugin
 let g:netrw_liststyle=3
 let NERDTreeShowHidden=1
+
+
+" filenames like *.xml, *.html, *.xhtml, ...
+" These are the file extensions where this plugin is enabled.
+"
+let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.js'
+
+" filenames like *.xml, *.xhtml, ...
+" This will make the list of non-closing tags self-closing in the specified files.
+"
+let g:closetag_xhtml_filenames = '*.xhtml,*.jsx'
+
+" filetypes like xml, html, xhtml, ...
+" These are the file types where this plugin is enabled.
+"
+let g:closetag_filetypes = 'html,xhtml,phtml'
+
+" filetypes like xml, xhtml, ...
+" This will make the list of non-closing tags self-closing in the specified files.
+"
+let g:closetag_xhtml_filetypes = 'xhtml,jsx'
+
+" integer value [0|1]
+" This will make the list of non-closing tags case-sensitive (e.g. `<Link>` will be closed while `<link>` won't.)
+"
+let g:closetag_emptyTags_caseSensitive = 1
+
+" dict
+" Disables auto-close if not in a "valid" region (based on filetype)
+"
+let g:closetag_regions = {
+    \ 'typescript.tsx': 'jsxRegion,tsxRegion',
+    \ 'javascript.jsx': 'jsxRegion',
+    \ 'typescriptreact': 'jsxRegion,tsxRegion',
+    \ 'javascriptreact': 'jsxRegion',
+    \ }
+
+" Shortcut for closing tags, default is '>'
+"
+let g:closetag_shortcut = '>'
+
+" Add > at current position without closing the current tag, default is ''
+"
+let g:closetag_close_shortcut = '<leader>>'
+
 
 " Always highlight column 80 so it's easier to see where
 " cutoff appears on longer screens
