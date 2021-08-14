@@ -49,12 +49,6 @@
     " coc extensions
         let g:coc_global_extensions = ['coc-tslint-plugin', 'coc-tsserver', 'coc-emmet', 'coc-css', 'coc-html', 'coc-json', 'coc-yank', 'coc-prettier', 'coc-pairs']
 
-        inoremap <silent><expr> <TAB>
-              \ pumvisible() ? "\<C-n>" :
-              \ <SID>check_back_space() ? "\<TAB>" :
-              \ coc#refresh()
-        inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-
     " Close tag
         " These are the file extensions where this plugin is enabled.
         let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.js'
@@ -85,9 +79,8 @@
         " Add > at current position without closing the current tag, default is ''
         let g:closetag_close_shortcut = '<leader>>'
 
-
-    " ReactSnippet
-        let g:UltiSnipsExpandTrigger='<Cr>'
+    " Emmet => type html div quick  
+        let g:user_emmet_leader_key=','
 
 " END Plugin Setup ======================================================================
 
@@ -219,5 +212,18 @@
 
     " highlight a matching [{()}] when cursor is placed on start/end character
     set showmatch
+
+    inoremap <expr> <CR> InsertMapForEnter()
+    function! InsertMapForEnter()
+        if pumvisible()
+            return "\<C-y>"
+        elseif strcharpart(getline('.'),getpos('.')[2]-1,1) == '}'
+            return "\<CR>\<Esc>O"
+        elseif strcharpart(getline('.'),getpos('.')[2]-1,2) == '</'
+            return "\<CR>\<Esc>O"
+        else
+            return "\<CR>"
+        endif
+    endfunction
 
 " END Vim Setup =========================================================================
