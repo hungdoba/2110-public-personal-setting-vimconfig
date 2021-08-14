@@ -1,1 +1,20 @@
-
+{
+    "prettier.tabWidth": 4,
+    "snippets.extends": {
+        "javascriptreact": ["javascript"],
+        "typescript": ["javascript"]
+    },
+    "pairs.enableCharacters": ["(", "[", "{", "'", "\"", "`"],
+    "suggest.noselect": false,
+    "suggest.numberSelect": true,
+    "coc.preferences.formatOnSaveFiletypes": [
+        "javascript",
+        "typescript",
+        "typescriptreact",
+        "json",
+        "javascriptreact",
+        "typescript.tsx",
+        "graphql",
+        "html"
+    ]
+}
