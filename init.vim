@@ -11,7 +11,6 @@
         Plug 'morhetz/gruvbox'
 
         " ReactSnippet
-        Plug 'SirVer/ultisnips'
         Plug 'mlaursen/vim-react-snippets'
 
         " Emmet => type html div quick
@@ -47,7 +46,7 @@
         map <leader>' :NERDTreeToggle<cr>
 
     " coc extensions
-        let g:coc_global_extensions = ['coc-tslint-plugin', 'coc-tsserver', 'coc-emmet', 'coc-css', 'coc-html', 'coc-json', 'coc-yank', 'coc-prettier', 'coc-pairs']
+        let g:coc_global_extensions = ['coc-tslint-plugin', 'coc-tsserver', 'coc-emmet', 'coc-css', 'coc-html', 'coc-json', 'coc-yank', 'coc-prettier', 'coc-pairs', 'coc-snippets']
 
     " Close tag
         " These are the file extensions where this plugin is enabled.
