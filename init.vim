@@ -87,6 +87,11 @@
 
 " Vim Setup ============================================================================= 
 
+
+    " Start NERDTree and leave the cursor in it.
+    autocmd VimEnter * NERDTree \repos\
+
+
     nnoremap gb :tabprevious<CR>
 
     "Set working directory to the current file
