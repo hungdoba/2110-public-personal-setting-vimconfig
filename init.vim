@@ -87,6 +87,9 @@
 " Vim Setup ============================================================================= 
 
 
+    "Open terminal
+    map <leader>t :terminal<cr>
+
     " Start NERDTree and leave the cursor in it.
     autocmd VimEnter * NERDTree \repos\
 
