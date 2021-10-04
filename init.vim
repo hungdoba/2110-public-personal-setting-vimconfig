@@ -11,6 +11,7 @@
         Plug 'morhetz/gruvbox'
 
         " ReactSnippet
+        Plug 'SirVer/ultisnips'
         Plug 'mlaursen/vim-react-snippets'
 
         " Emmet => type html div quick
@@ -34,11 +35,12 @@
 
 " Plugin Setup ==========================================================================
     " Ctrlp
-        let g:ctrlp_show_hidden=1
-        let g:ctrlp_working_path_mode=0
-        let g:ctrlp_max_height=30
-        let g:ctrlp_arg_map=1
+    "    let g:ctrlp_show_hidden=1
+    "    let g:ctrlp_working_path_mode=0
+    "    let g:ctrlp_max_height=30
+    "    let g:ctrlp_arg_map=1
         map <leader>; :CtrlPBuffer<cr>
+    "    map <leader>; :CtrlP<cr>
 
     " Nerdtree
         let g:netrw_liststyle=3
@@ -46,7 +48,7 @@
         map <leader>' :NERDTreeToggle<cr>
 
     " coc extensions
-        let g:coc_global_extensions = ['coc-tslint-plugin', 'coc-tsserver', 'coc-emmet', 'coc-css', 'coc-html', 'coc-json', 'coc-yank', 'coc-prettier', 'coc-pairs', 'coc-snippets']
+        let g:coc_global_extensions = ['coc-tslint-plugin', 'coc-tsserver', 'coc-emmet', 'coc-css', 'coc-html', 'coc-json', 'coc-yank', 'coc-prettier', 'coc-pairs']
 
     " Close tag
         " These are the file extensions where this plugin is enabled.
@@ -86,18 +88,34 @@
 
 " Vim Setup ============================================================================= 
 
-
     "Open terminal
-    map <leader>t :terminal<cr>
+    map <leader>t :vs term://cmd<cr>
     :tnoremap <Esc> <C-\><C-n>
 
-    " Start NERDTree and leave the cursor in it.
-    autocmd VimEnter * NERDTree \repos\
+    "Go to next error
+    map <leader>e :cnext<cr>
 
-    " enable mouse
-    :set mouse=nv
+    "Automatically start NERDTree with default derectory
+    autocmd VimEnter * NERDTree \repos\blog
 
+    "Go to tabprevious
     nnoremap gb :tabprevious<CR>
+
+    "Set netrw
+    "nmap <C-u> : netrw-ctr_l
+    "let g:netrw_banner = 0
+    "let g:netrw_liststyle = 3
+    "let g:netrw_browse_split = 4
+    "let g:netrw_altv = 1
+    "let g:netrw_winsize = 50
+    "let g:netrw_localrmdir='rm -r'
+    "augroup ProjectDrawer
+    "  autocmd!
+    "  autocmd VimEnter * :Vexplore
+    "augroup END
+
+    "Set mouse
+    set mouse=nv
 
     "Set working directory to the current file
     set autochdir
