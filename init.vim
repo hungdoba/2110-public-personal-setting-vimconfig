@@ -89,8 +89,18 @@
 " Vim Setup ============================================================================= 
 
     "Open terminal
-    map <leader>t :vs term://cmd<cr>
+    map <leader>tt :vs term://cmd<cr>
+    map <leader>tj :sp term://cmd<cr>
     :tnoremap <Esc> <C-\><C-n>
+
+    "Quit
+    map <leader>q :q<cr>
+
+    "Tabonly
+    map <leader>to :tabonly<cr>
+
+    "Save
+    map <leader>w :w<cr>
 
     "Go to next error
     map <leader>e :cnext<cr>
