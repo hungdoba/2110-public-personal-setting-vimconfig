@@ -93,6 +93,12 @@
     map <leader>tj :sp term://cmd<cr>
     :tnoremap <Esc> <C-\><C-n>
 
+    "Change size of split
+    map <C-,> <C-w><
+    map <C-.> <C-w>>
+    map <C--> <C-w>-
+    map <C-=> <C-w>+
+
     "Quit
     map <leader>q :q<cr>
 
@@ -106,7 +112,7 @@
     map <leader>e :cnext<cr>
 
     "Automatically start NERDTree with default derectory
-    autocmd VimEnter * NERDTree \repos\blog
+    autocmd VimEnter * NERDTree \repos
 
     "Go to tabprevious
     nnoremap gb :tabprevious<CR>
