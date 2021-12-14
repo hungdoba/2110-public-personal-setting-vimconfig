@@ -88,6 +88,15 @@
 
 " Vim Setup ============================================================================= 
 
+    "Replace
+    vnoremap <C-r> "hy:%s#<C-r>h##gc<left><left><left>
+
+    "Go to Error
+    " Use `[g` and `]g` to navigate diagnostics
+    " Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
+    nmap <silent> [g <Plug>(coc-diagnostic-prev)
+    nmap <silent> ]g <Plug>(coc-diagnostic-next)
+
     "Open terminal
     map <leader>tt :vs term://cmd<cr>
     map <leader>tj :sp term://cmd<cr>
